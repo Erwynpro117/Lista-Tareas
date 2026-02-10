@@ -55,7 +55,7 @@ body{
     min-height: 100vh;
     font-family: var(--font-primary);
     padding: var(--space-l);
-    background-color: var(--bg-body);
+    background-image: url(Assets/Fondo\ chido.jpg);
 }
 
 .contenedor {

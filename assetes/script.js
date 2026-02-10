@@ -6,6 +6,7 @@ const contenedorTareas = document.getElementById("contenedorTareas");
 const mensaje = document.getElementById("mensaje");
 const contadorTotales = document.getElementById("contadorTotales");
 const contadorTerminadas = document.getElementById("contadorTerminadas");
+const botonOcultar = document.getElementById('botonOcultar');
 
 /* Función para crear el elemnto tarea (Función creadora del Nodo Tarea) */
 
@@ -122,3 +123,43 @@ tareaEntrada.addEventListener('input', () => {
         mensaje.textContent = 'Presiona enter! c:'
     }
 })
+
+let tareasOcultas = false;
+
+function toggleOcultarCompletadas() {
+    const tareasCompletadas = document.querySelectorAll('.tarea-completada')
+
+    tareasCompletadas.forEach((tarea) => {
+        if(tareasOcultas) {
+            tarea.Style.display = 'flex';
+        } else {
+            tarea.Style.display = 'none';
+        }
+    })
+
+    tareasOcultas = !tareasOcultas;
+
+    if(tareasOcultas) {
+        botonOcultar.textContent ="Mostrar Completadas";
+
+    } else {
+        botonOcultar.textContent ="Ocultar Completadas"
+
+    }
+
+    console.log(tareasOcultas)
+
+}
+
+function eliminarCompletadas () {
+
+    const.tareasCompletadas = document.querySelectorAll('tareas-completadas');
+
+    tareasCompletadas.forEach((tarea) => {tarea.remove() } )
+
+    actualizarContadores();
+}
+
+botonAgregar.addEventListener('click', agregarTarea);
+botonOcultar.addEventListener('click', toggleOcultarCompletadas);
+botonEliminar.addEventListener('click', eliminarCompletadas);
